@@ -4,13 +4,19 @@ upKey = document.getElementById("up");
 leftKey = document.getElementById("left");
 downKey = document.getElementById("down");
 rightKey = document.getElementById("right");
+let screenWidth;
+let screenHeight;
 
-canvas = document.getElementById("canvas")
+findScreenSize = function () {
+    //divide by 6 to put in rem
+//6 bc width of sprite is 6
+screenWidth = window.innerWidth/16 - 6;
+//8 bc height of sprite is 8
+screenHeight = window.innerHeight/16 - 8;
+};
+findScreenSize();
 
-//divide by 12 to put in rem
-let screenWidth = window.innerWidth/16 - 6;
-
-let screenHeight = window.innerHeight/16 - 8;
+window.addEventListener("resize", findScreenSize())
 
 let x = 0;
 let y = 0;
