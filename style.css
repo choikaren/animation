@@ -1,11 +1,11 @@
 :root {
-    --scale: 12;
+    --scale: 6;
  }
  *{margin: 0;
    padding: 0;}
    
  html {
-   font-size: 62.5%;
+   /* font-size: 62.5%; */
    padding: 0;
    margin: 0;
    box-sizing: border-box;
@@ -18,10 +18,10 @@
  }
 
  .canvas {
-    width: 60rem;
-    height: 60rem;
+    width: 100vw;
+    height: 100vh;
     background-color: antiquewhite;
-    padding: 3rem;
+    /* padding: 3rem; */
     margin: auto;
  }
  
@@ -65,10 +65,27 @@
  
  @keyframes moveSpritesheet {
     from {
-       transform: translate3d(0px,0,0)
+       transform: translate3d(0,0,0)
     }
     to {
        transform: translate3d(-100%,0,0)
     }
  }
+
+ .row {
+    display: flex;
+    flex-direction: row;
+ }
  
+.keypad {
+   position: absolute;
+   bottom: 3rem;
+}
+
+ .key {
+    height: 5rem;
+    width: 5rem;
+    margin: 1rem;
+    background-color: cadetblue;
+    cursor: pointer;
+ }
