@@ -14,14 +14,16 @@
 }
  
  body {
-    background: #96ffc1;
+   background-color: antiquewhite;
+   width: 100vw;
+   height: 100vh;
  }
 
  .canvas {
-    width: 100vw;
-    height: 100vh;
-    background-color: antiquewhite;
-    /* padding: 3rem; */
+    margin: 3rem;
+    /* width: 100%;
+    height: 100%; */
+   /* padding: 3rem; */
     margin: auto;
  }
  
@@ -39,7 +41,7 @@
  }
 
  .Character_animation {
-    animation: moveSpritesheet .8s steps(4) infinite;
+    animation: moveSpritesheet 1s steps(4) infinite;
  }
 
  .Character_shadow {
@@ -85,7 +87,7 @@
  .key {
     height: 5rem;
     width: 5rem;
-    margin: 1rem;
+    margin: .5rem;
     background-color: cadetblue;
     cursor: pointer;
  }
