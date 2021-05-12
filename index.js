@@ -126,6 +126,7 @@ keypadArray = [
       sprite.classList.remove("face-down", "face-right", "face-left");
       y = y - 1;
     },
+    text: "up"
   },
   {
     key: leftKey,
@@ -135,6 +136,7 @@ keypadArray = [
       sprite.classList.remove("face-down", "face-right", "face-up");
       x = x - 1;
     },
+    text: "left"
   },
   {
     key: downKey,
@@ -144,6 +146,7 @@ keypadArray = [
       sprite.classList.remove("face-right", "face-left", "face-up");
       y = y + 1;
     },
+    text: "down"
   },
   {
     key: rightKey,
@@ -153,11 +156,22 @@ keypadArray = [
       sprite.classList.remove("face-down", "face-left", "face-up");
       x = x + 1;
     },
+    text: "right"
   },
 ];
 
+popUpModal = document.getElementById("popUpModal")
+closeModal = document.getElementById("closeModal");
+closeModal.addEventListener("click", function () {
+  popUpModal.style.display = "none";
+})
+
 keypadArray.forEach((keypad) => {
   keypad.key.addEventListener("mousedown", function () {
+
+    popUpModal.style.display = "block";
+    popUpModal.insertAdjacentHTML('afterbegin', `${keypad.text}` );
+
     addAnimation();
     keypadInterval = setInterval(function () {
       keypad.keyfunction();

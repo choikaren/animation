@@ -91,3 +91,18 @@
     background-color: cadetblue;
     cursor: pointer;
  }
+
+ .popUpModal {
+    position: absolute;
+    background-color: black;
+    height: 5rem;
+    width: 5rem;
+    display: none;
+    color: wheat;
+ }
+
+ .closeModal {
+    height: 2rem;
+    width: 2rem;
+    background-color: red;
+ }
