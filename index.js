@@ -160,7 +160,7 @@ keypadArray = [
   },
 ];
 
-popUpModal = document.getElementById("popUpModal")
+modalContent = document.getElementById("modal-content")
 closeModal = document.getElementById("closeModal");
 closeModal.addEventListener("click", function () {
   popUpModal.style.display = "none";
@@ -170,7 +170,7 @@ keypadArray.forEach((keypad) => {
   keypad.key.addEventListener("mousedown", function () {
 
     popUpModal.style.display = "block";
-    popUpModal.insertAdjacentHTML('afterbegin', `${keypad.text}` );
+    modalContent.innerHTML = keypad.text;
 
     addAnimation();
     keypadInterval = setInterval(function () {
