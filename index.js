@@ -1,9 +1,9 @@
 sprite = document.getElementById("spriteCharacter");
 character = document.getElementById("character");
-upKey = document.getElementById("up");
-leftKey = document.getElementById("left");
-downKey = document.getElementById("down");
-rightKey = document.getElementById("right");
+// upKey = document.getElementById("upKey");
+// leftKey = document.getElementById("left");
+// downKey = document.getElementById("down");
+// rightKey = document.getElementById("right");
 let screenWidth;
 let screenHeight;
 
@@ -62,12 +62,10 @@ moveDown = function () {
   y = y + 1;
 };
 
-
 updateSpritePosition = function () {
   character.style.left = x + "rem";
   character.style.top = y + "rem";
 };
-
 
 //boundaries
 walls = function () {
@@ -85,7 +83,6 @@ walls = function () {
     y = screenHeight;
   }
 };
-
 
 //keyboard
 keyboardAnimate = function () {
@@ -115,71 +112,80 @@ document.addEventListener("keyup", function () {
   clearInterval(keyboardInterval);
 });
 
-
-//keypad 
+//keypad
 keypadArray = [
   {
-    key: upKey,
+    key: "upKey",
     keyfunction: function () {
       console.log("Up key is connected");
       sprite.classList.add("face-up");
       sprite.classList.remove("face-down", "face-right", "face-left");
       y = y - 1;
     },
-    text: "up"
+    text: "up",
   },
   {
-    key: leftKey,
+    key: "leftKey",
     keyfunction: function () {
       console.log("Left key is connected");
       sprite.classList.add("face-left");
       sprite.classList.remove("face-down", "face-right", "face-up");
       x = x - 1;
     },
-    text: "left"
+    text: "left",
   },
   {
-    key: downKey,
+    key: "downKey",
     keyfunction: function () {
       console.log("Down key is connected");
       sprite.classList.add("face-down");
       sprite.classList.remove("face-right", "face-left", "face-up");
       y = y + 1;
     },
-    text: "down"
+    text: "down",
   },
   {
-    key: rightKey,
+    key: "rightKey",
     keyfunction: function () {
       console.log("Right key is connected");
       sprite.classList.add("face-right");
       sprite.classList.remove("face-down", "face-left", "face-up");
       x = x + 1;
     },
-    text: "right"
+    text: "right",
   },
 ];
 
-modalContent = document.getElementById("modal-content")
+modalContent = document.getElementById("modal-content");
 closeModal = document.getElementById("closeModal");
 closeModal.addEventListener("click", function () {
   popUpModal.style.display = "none";
-})
+});
+
+keypadBtns = document.getElementById("keypadBtns");
+console.log(keypadBtns);
 
 keypadArray.forEach((keypad) => {
-  keypad.key.addEventListener("mousedown", function () {
+  document
+    .getElementById("keypadBtns")
+    .insertAdjacentHTML(
+      "beforeend",
+      `<div id="${keypad.text}" class="key"> ${keypad.text} </div>`
+    );
+  document
+    .getElementById(keypad.text)
+    .addEventListener("mousedown", function () {
+      popUpModal.style.display = "block";
+      modalContent.innerHTML = keypad.text;
 
-    popUpModal.style.display = "block";
-    modalContent.innerHTML = keypad.text;
-
-    addAnimation();
-    keypadInterval = setInterval(function () {
-      keypad.keyfunction();
-      walls();
-      updateSpritePosition();
-    }, 50);
-  });
-  keypad.key.addEventListener("mouseup", function () {
+      addAnimation();
+      keypadInterval = setInterval(function () {
+        keypad.keyfunction();
+        walls();
+        updateSpritePosition();
+      }, 50);
+    });
+  document.getElementById(keypad.text).addEventListener("mouseup", function () {
     removeAnimation();
     clearInterval(keypadInterval);
   });

@@ -74,14 +74,12 @@
     }
  }
 
- .row {
-    display: flex;
-    flex-direction: row;
- }
  
-.keypad {
+.keypadBtns {
    position: absolute;
    bottom: 3rem;
+   display: flex;
+   flex-direction: row;
 }
 
  .key {
